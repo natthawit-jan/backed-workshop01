@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 public class HelloWorldTest {
     @Test
-    public void sayHiTo_world_should_return_hello_World() {
+    public void sayHiTo_world_should_return_Hello_World() {
         HelloWorld helloWorld = new HelloWorld();
         String result = helloWorld.sayHiTo("world");
         assertEquals("Hello World", result);
