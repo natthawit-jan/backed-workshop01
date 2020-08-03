@@ -25,6 +25,8 @@
 
 [TC6](#test-case-6)
 
+[TC7](#test-case-7)
+
 ## Test Case 1, 2 and 3       
 `5638882  The first three commit`
 
@@ -52,3 +54,8 @@ Read data should linearly be correct
 `1289212d - TC6`
 
 The old data will be evicted if not read and the buffer is full
+
+## Test Case 7
+`1427161 - TC7`
+
+reading_from_newly_created_buffer_should_throw_exception
