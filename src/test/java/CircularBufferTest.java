@@ -61,4 +61,24 @@ public class CircularBufferTest {
 
     }
 
+
+    @Test
+    public void when_the_buffer_is_full_the_oldest_object_will_get_evicted() {
+        CircularBuffer<String> circularBuffer = new CircularBuffer<>();
+        for (int i = 0; i < 5; i++) {
+            circularBuffer.writeData("A" + i);
+        }
+        assertTrue("The buffer is still not full", circularBuffer.isFull());
+        // Evicted the oldest one and replaced it with the new value
+        circularBuffer.writeData("New data");
+        String result = null;
+        for (int i = 0; i < 5; i++) {
+            result = circularBuffer.readData();
+        }
+        assertEquals("The new data didn't replace the old", "New data", result);
+
+
+
+    }
+
 }
