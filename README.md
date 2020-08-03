@@ -1,3 +1,20 @@
+### 1. Data structure  
++ LinkedList 
+
+### 2. Operations/Behavior/Methods
++ writeData(T): void 
++ readData(): T
++ isFull(): boolean
++ isEmpty(): boolean
+
+### 3. Internal process
++ BUFFER_SIZE = 5 (default)
++ read pointer = 0
++ write pointer = 0
++ countElement = 0
++ incrementWritePointer()
++ incrementReadPointer()
+
 # List of test cases 
 
 [TC 1, 2, 3](#test-case-1-2-and-3)
