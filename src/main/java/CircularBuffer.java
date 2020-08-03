@@ -42,7 +42,8 @@ public class CircularBuffer<T> {
         return writePointer == readPointer && countElement == BUFFER_SIZE;
     }
 
-    public T readData() {
+    public T readData() throws Exception {
+        if (isEmpty()) throw  new Exception("The buffer is empty");
         T result = buffer.get(readPointer);
         incrementReadPointer();
         countElement--;

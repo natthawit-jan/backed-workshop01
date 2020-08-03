@@ -22,7 +22,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void writing_A_to_buffer_should_read_A() {
+    public void writing_A_to_buffer_should_read_A() throws Exception {
         CircularBuffer<String> circularBuffer = new CircularBuffer<>();
         circularBuffer.writeData("A");
         circularBuffer.writeData("B");
@@ -31,7 +31,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void write_pointer_should_wrap_around_the_buffer() {
+    public void write_pointer_should_wrap_around_the_buffer() throws Exception {
         CircularBuffer<String> circularBuffer = new CircularBuffer<>();
         for (int i = 0; i < 4; i++) {
             circularBuffer.writeData("A" + i);
@@ -49,7 +49,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void linearly_read_data_should_be_correct() {
+    public void linearly_read_data_should_be_correct() throws Exception {
         CircularBuffer<String> circularBuffer = new CircularBuffer<>();
         for (int i = 0; i < 4; i++) {
             circularBuffer.writeData("A" + i);
@@ -63,7 +63,7 @@ public class CircularBufferTest {
 
 
     @Test
-    public void when_the_buffer_is_full_the_oldest_object_will_get_evicted() {
+    public void when_the_buffer_is_full_the_oldest_object_will_get_evicted() throws Exception {
         CircularBuffer<String> circularBuffer = new CircularBuffer<>();
         for (int i = 0; i < 5; i++) {
             circularBuffer.writeData("A" + i);
@@ -76,9 +76,13 @@ public class CircularBufferTest {
             result = circularBuffer.readData();
         }
         assertEquals("The new data didn't replace the old", "New data", result);
-
-
-
     }
+
+    @Test(expected = Exception.class)
+    public void reading_from_newly_created_buffer_should_throw_exception() throws Exception {
+        CircularBuffer<String> circularBuffer = new CircularBuffer<>();
+        circularBuffer.readData();
+    }
+
 
 }
