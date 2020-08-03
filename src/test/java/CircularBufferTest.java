@@ -48,4 +48,17 @@ public class CircularBufferTest {
         assertEquals("This read data is not B0", "B0", result);
     }
 
+    @Test
+    public void linearly_read_data_should_be_correct() {
+        CircularBuffer<String> circularBuffer = new CircularBuffer<>();
+        for (int i = 0; i < 4; i++) {
+            circularBuffer.writeData("A" + i);
+        }
+        assertEquals("1st data is not A0", "A0", circularBuffer.readData());
+        assertEquals("1st data is not A1", "A1", circularBuffer.readData());
+        assertEquals("1st data is not A2", "A2", circularBuffer.readData());
+        assertEquals("1st data is not A3", "A3", circularBuffer.readData());
+
+    }
+
 }
